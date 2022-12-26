@@ -1,70 +1,44 @@
-# Getting Started with Create React App
+# react-vocalize
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A custom React hook for real-time speech-to-text transcription using the browser's Speech Recognition API. 
 
-## Available Scripts
+ ## Published in npm
+ 
+ [npm package](https://www.npmjs.com/package/react-vocalize)
 
-In the project directory, you can run:
+ ## Working
 
-### `npm start`
+ `useVoice` is a React hook that enables a React component to access a transcript of speech input from the user's microphone.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+ The hook utilizes the **Web Speech API**, which is supported by most modern browsers. This version of the hook requires **React 16.8** or higher to utilize React hooks.
 
-### `npm test`
+ ## Additional Information
+ * [Basic Usage](#basic-usage)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `npm run build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+ ## Basic Usage
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+ A basic example of a react component using this hook is : 
+ ``` js
+ import React from 'react';
+ import {useVoice} from 'react-vocalize';
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+ const MyComponent = () => {
+    const {
+        isRecording,
+        setIsRecording,
+        voiceNote
+    } = useVoice();
+ }
 
-### `npm run eject`
+ return (
+    <div>
+        <p>IsRecording : {isRecording? 'yes': 'no'}</p>
+        <button onClick={() => setIsRecording(prev => !prev)}> Mic </button>
+        <div>{voiceNote}</div>
+    </div>
+ )
+ ```
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
