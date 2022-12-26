@@ -47,7 +47,6 @@ const useVoice = () => {
 }
 
 export {useVoice}
-
 // Usage
 // import {useVoice} from ""
 // const {isRecording, setIsRecording, voiceNote, setVoiceNote} = useVoice()
